@@ -51,7 +51,7 @@ body {
 }
 
 .text-black {
-    color: #000 !important;
+    color: black !important;
 }
 
 .border-black {
@@ -59,7 +59,7 @@ body {
 }
 
 .bg-black {
-    background: #000 !important;
+    background: #14599D !important;
 }
 
 .overlay {
@@ -81,7 +81,7 @@ body {
   }
 }
 
-/* fixed top navbar only on medium and up */
+/* Fixed top navbar only on medium and up */
 @media (min-width: 992px) {
     .fixed-top-desktop-only {
         position: fixed;
@@ -93,6 +93,17 @@ body {
 
     .header-container {
         padding-top: 164px;
+    }
+}
+
+/* Pad the top a bit when navbar is collapsed on mobile */
+@media (max-width: 991px) {
+    .header-container {
+        padding-top: 116px;
+    }
+
+    body {
+        height: calc(100vh - 116px);
     }
 }
 
