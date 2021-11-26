@@ -107,10 +107,10 @@ class StripeWH_Handler:
                     street_address1=shipping_details.address.line1,
                     street_address2=shipping_details.address.line2,
                     county=shipping_details.address.state,
-                    original_bag=bag,
+                    original_cart=cart,
                     stripe_pid=pid,
                 )
-                for item_id, item_data in json.loads(bag).items():
+                for item_id, item_data in json.loads(cart).items():
                     product = Product.objects.get(id=item_id)
                     if isinstance(item_data, int):
                         order_line_item = OrderLineItem(
@@ -120,7 +120,8 @@ class StripeWH_Handler:
                         )
                         order_line_item.save()
                     else:
-                        for size, quantity in item_data['items_by_size'].items():
+                        for size, quantity in \
+                                item_data['items_by_size'].items():
                             order_line_item = OrderLineItem(
                                 order=order,
                                 product=product,
@@ -136,8 +137,9 @@ class StripeWH_Handler:
                     status=500)
         self._send_confirmation_email(order)
         return HttpResponse(
-            content=(f'Webhook received: {event["type"]} | SUCCESS: '
-                     'Created order in webhook'),
+            content=f'Webhook received: \
+                {event["type"]} | SUCCESS: \
+                    Created order in webhook',
             status=200)
 
     def handle_payment_intent_payment_failed(self, event):
