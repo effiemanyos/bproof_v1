@@ -15,6 +15,7 @@
 {% endblock %}
 
 {% block content %}
+    <!-- HEADING -->
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
@@ -25,6 +26,7 @@
             </div>
         </div>
 
+        <!-- BAG SUMMARY -->
         <div class="row">
             <div class="col-12 col-lg-6 order-lg-last mb-5">
                 <div class="text-muted">Order Summary ({{ product_count }})</div>
@@ -101,14 +103,13 @@
                     </fieldset>
                     <fieldset class="px-3">
                         <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
-                        <!-- A Stripe card element will go here -->
+                        <!-- A STRIPE CARD ELEMENT WILL GO HERE -->
                         <div class="mb-3" id="card-element"></div>
-                        <!-- Used to display form errors -->
+                        <!-- USED TO DISPLAY FORM ERRORS -->
                         <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
-                        <!-- Pass the client secret to the view so we can get the payment intent id -->
+                        <!-- PASS THE CLIENT SECRET TO THE VIEW SO WE CAN GET THE PAYMENT INTENT ID -->
                         <input type="hidden" value="{{ client_secret }}" name="client_secret">
                     </fieldset>
-
                     <div class="submit-button text-right mt-5 mb-2">                    
 						<a href="{% url 'view_bag' %}" class="btn btn-outline-black rounded-0">
 							<span class="icon">
@@ -133,6 +134,7 @@
             </div>
         </div>
     </div>
+    <!-- LOADING OVERLAY -->
     <div id="loading-overlay">
         <h1 class="text-light logo-font loading-spinner">
             <span class="icon">
