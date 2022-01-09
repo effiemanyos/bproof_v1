@@ -29,7 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-# Application definition
+# APPLICATION DEFINITION
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -46,8 +46,9 @@ INSTALLED_APPS = [
     'products',
     'bag',
     'checkout',
+    'profiles',
     
-    # Other Apps
+    # OTHER APPS
     'crispy_forms',
 ]
 
@@ -115,7 +116,7 @@ LOGIN_REDIRECT_URL = '/'
 WSGI_APPLICATION = 'bproof.wsgi.application'
 
 
-# Database
+# DATABASE
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
@@ -126,7 +127,7 @@ DATABASES = {
 }
 
 
-# Password validation
+# PASSWORD VALIDATION
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -145,7 +146,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
+# INTERNATIONALIZATION
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
@@ -159,7 +160,7 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
+# STATIC FILES (CSS, JAVASCRIPT, IMAGES)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
@@ -170,7 +171,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Stripe
+# STRIPE
 FREE_DELIVERY_THRESHOLD = 50
 STANDARD_DELIVERY_PERCENTAGE = 10
 STRIPE_CURRENCY = 'usd'
